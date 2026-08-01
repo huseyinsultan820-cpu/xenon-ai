@@ -1,33 +1,21 @@
-print("=================================")
-print("        Xenon AI v0.2")
-print("=================================")
+from app.ai import ask_ai
 
-isim = input("Adın nedir? ")
+print("=" * 40)
+print("        Xenon AI v1.0")
+print("=" * 40)
 
-print(f"\nMerhaba {isim}!")
-print("Ben Xenon AI.")
-print("Benimle konuşabilirsin.")
-print("Çıkmak için 'çık', 'cik', 'exit' veya 'quit' yaz.\n")
+print("Gerçek yapay zekâ hazır.")
+print("Çıkmak için 'çık' yaz.\n")
 
 while True:
-    mesaj = input(f"{isim}: ")
+    mesaj = input("Sen: ")
 
     if mesaj.lower() in ["çık", "cik", "exit", "quit"]:
         print("Xenon AI: Görüşmek üzere!")
         break
 
-    if mesaj.lower() == "merhaba":
-        print(f"Xenon AI: Merhaba {isim}! 😊")
-
-    elif mesaj.lower() == "nasılsın":
-        print("Xenon AI: İyiyim, teşekkür ederim. Sen nasılsın?")
-
-    elif mesaj.lower() == "adın ne":
-        print("Xenon AI: Benim adım Xenon AI.")
-
-    elif mesaj.lower() == "kaç yaşındasın":
-        print("Xenon AI: Ben bir yapay zekâyım, yaşım yok.")
-
-    else:
-        print(f"Xenon AI: Sen bana '{mesaj}' yazdın.")
-        print("Xenon AI: Bu komutu henüz öğrenmedim.")
+    try:
+        cevap = ask_ai(mesaj)
+        print(f"\nXenon AI: {cevap}\n")
+    except Exception as e:
+        print(f"\nHata oluştu: {e}\n")
