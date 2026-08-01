@@ -1,0 +1,25 @@
+from colorama import Fore, Style, init
+
+init(autoreset=True)
+
+# Ana renkler
+GREEN = Fore.GREEN
+RED = Fore.RED
+YELLOW = Fore.YELLOW
+BLUE = Fore.BLUE
+CYAN = Fore.CYAN
+MAGENTA = Fore.MAGENTA
+WHITE = Fore.WHITE
+
+# Parlak renkler
+LGREEN = Fore.LIGHTGREEN_EX
+LRED = Fore.LIGHTRED_EX
+LBLUE = Fore.LIGHTBLUE_EX
+LCYAN = Fore.LIGHTCYAN_EX
+LYELLOW = Fore.LIGHTYELLOW_EX
+LMAGENTA = Fore.LIGHTMAGENTA_EX
+LWHITE = Fore.LIGHTWHITE_EX
+
+RESET = Style.RESET_ALL
+BRIGHT = Style.BRIGHT
+DIM = Style.DIM
