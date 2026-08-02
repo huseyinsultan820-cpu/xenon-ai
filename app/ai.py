@@ -1,16 +1,19 @@
-from ollama import chat
+from groq import Groq
+import os
+
+client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 def ask_ai(message):
-    response = chat(
-        model="qwen2.5:1.5b",
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
         messages=[
             {
                 "role": "system",
                 "content": (
                     "Sen Xenon AI'sın. "
                     "Her zaman kullanıcının yazdığı dilde cevap ver. "
-                    "İç düşüncelerini veya muhakeme sürecini gösterme. "
-                    "Kısa ve net cevap ver."
+                    "İç düşünce sürecini gösterme. "
+                    "Kısa, doğru ve net cevaplar ver."
                 ),
             },
             {
@@ -20,4 +23,4 @@ def ask_ai(message):
         ],
     )
 
-    return response["message"]["content"]
+    return response.choices[0].message.content
